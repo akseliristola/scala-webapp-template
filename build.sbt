@@ -256,7 +256,10 @@ lazy val api = (crossProject(JSPlatform, JVMPlatform) in file("lib/api"))
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play-json" % playJson,
       "com.softwaremill.sttp.client3" %% "core" % sttp,
-      "io.swagger" % "swagger-annotations" % swagger
+      "io.swagger" % "swagger-annotations" % swagger,
+      //"org.endpoints4s" %%% "algebra" % "1.10.0",
+      //"org.endpoints4s" %%% "json-schema-generic" % "1.10.0"
+
     )
   )
   .jsSettings(
@@ -305,9 +308,12 @@ lazy val ui = (project in file("lib/ui"))
       "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
       "net.wiringbits" %%% "slinky-utils" % webappUtils,
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
-      "com.beachape" %%% "enumeratum" % enumeratum
+      "com.beachape" %%% "enumeratum" % enumeratum,
+
+
     )
   )
+
 
 lazy val server = (project in file("server"))
   .dependsOn(common.jvm, api.jvm)
@@ -338,8 +344,11 @@ lazy val server = (project in file("server"))
       "javax.annotation" % "javax.annotation-api" % "1.3.2",
       "javax.el" % "javax.el-api" % "3.0.0",
       "org.glassfish" % "javax.el" % "3.0.0",
-      "com.beachape" %% "enumeratum" % enumeratum
+      "com.beachape" %% "enumeratum" % enumeratum,
+      //"org.endpoints4s" %% "openapi" % "4.4.0",
+      //("org.endpoints4s" %% "play-server" % "5.0.0+2-49f5d665+20230713-1251-SNAPSHOT")
     )
+
   )
 
 lazy val webBuildInfoSettings: Project => Project = _.enablePlugins(BuildInfoPlugin)
@@ -435,7 +444,9 @@ lazy val admin = (project in file("admin"))
     webpackBundlingMode := BundlingMode.LibraryOnly(),
     libraryDependencies ++= Seq(
       "com.softwaremill.sttp.client3" %%% "core" % sttp,
-      "net.wiringbits" %%% "admin-data-explorer-web" % webappUtils
+      "net.wiringbits" %%% "admin-data-explorer-web" % webappUtils,
+
+
     ),
     Compile / npmDependencies ++= Seq(
       "react" -> "17.0.0",
@@ -462,6 +473,7 @@ lazy val root = (project in file("."))
     server,
     web,
     admin
+
   )
   .settings(
     publish := {},
