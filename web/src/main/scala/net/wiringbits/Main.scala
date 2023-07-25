@@ -20,10 +20,6 @@ object Main {
   val css = IndexCSS
 
   def main(argv: Array[String]): Unit = {
-    if (LinkingInfo.developmentMode) {
-      hot.initialize()
-    }
-
     val scheduler = monix.execution.Scheduler.global
     val $authState = Var[AuthState](AuthState.Unauthenticated)(scheduler)
     val $lang = Var[I18nLang](I18nLang.English)(scheduler)

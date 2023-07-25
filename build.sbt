@@ -229,7 +229,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
   .jvmSettings(
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play-json" % playJson,
-      "net.wiringbits" %% "webapp-common" % webappUtils,
+      "net.wiringbits" %% "webapp-common" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
       "org.scalatest" %% "scalatest" % "3.2.16" % Test
     )
   )
@@ -241,7 +241,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
     libraryDependencies ++= Seq(
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "com.typesafe.play" %%% "play-json" % playJson,
-      "net.wiringbits" %%% "webapp-common" % webappUtils,
+      "net.wiringbits" %%% "webapp-common" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum
     )
@@ -257,9 +257,6 @@ lazy val api = (crossProject(JSPlatform, JVMPlatform) in file("lib/api"))
       "com.typesafe.play" %% "play-json" % playJson,
       "com.softwaremill.sttp.client3" %% "core" % sttp,
       "io.swagger" % "swagger-annotations" % swagger,
-      //"org.endpoints4s" %%% "algebra" % "1.10.0",
-      //"org.endpoints4s" %%% "json-schema-generic" % "1.10.0"
-
     )
   )
   .jsSettings(
@@ -306,9 +303,10 @@ lazy val ui = (project in file("lib/ui"))
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
       "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
-      "net.wiringbits" %%% "slinky-utils" % webappUtils,
+      "net.wiringbits" %%% "slinky-utils" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum,
+
 
 
     )
@@ -345,10 +343,8 @@ lazy val server = (project in file("server"))
       "javax.el" % "javax.el-api" % "3.0.0",
       "org.glassfish" % "javax.el" % "3.0.0",
       "com.beachape" %% "enumeratum" % enumeratum,
-      //"org.endpoints4s" %% "openapi" % "4.4.0",
-      //("org.endpoints4s" %% "play-server" % "5.0.0+2-49f5d665+20230713-1251-SNAPSHOT")
-    )
 
+    )
   )
 
 lazy val webBuildInfoSettings: Project => Project = _.enablePlugins(BuildInfoPlugin)
@@ -407,7 +403,7 @@ lazy val web = (project in file("web"))
       "com.softwaremill.sttp.client3" %%% "core" % sttp,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
       "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
-      "net.wiringbits" %%% "scalablytyped-facades" % webappUtils,
+      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
       "io.monix" %%% "monix-reactive" % "3.4.1"
     ),
     libraryDependencies ++= Seq(
