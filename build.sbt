@@ -229,7 +229,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
   .jvmSettings(
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play-json" % playJson,
-      "net.wiringbits" %% "webapp-common" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
+      "net.wiringbits" %% "webapp-common" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
       "org.scalatest" %% "scalatest" % "3.2.16" % Test
     )
   )
@@ -241,7 +241,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
     libraryDependencies ++= Seq(
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "com.typesafe.play" %%% "play-json" % playJson,
-      "net.wiringbits" %%% "webapp-common" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
+      "net.wiringbits" %%% "webapp-common" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum
     )
@@ -285,10 +285,14 @@ lazy val ui = (project in file("lib/ui"))
     stTypescriptVersion := "3.9.3",
     // material-ui is provided by a pre-packaged library
     stIgnore ++= List("@material-ui/core", "@material-ui/styles", "@material-ui/icons"),
+    //stIgnore ++= List("@mui/material", "@mui/styles", "@mui/icons-material"),
     Compile / npmDependencies ++= Seq(
       "@material-ui/core" -> "3.9.4", // note: version 4 is not supported yet
       "@material-ui/styles" -> "3.0.0-alpha.10", // note: version 4 is not supported yet
       "@material-ui/icons" -> "3.0.2",
+      //"@mui/material"->"5.11.15",
+      //"@mui/styles" -> "5.11.13", // note: version 4 is not supported yet
+      //"@mui/icons-material"->"5.14.3",
       "@types/classnames" -> "2.2.10",
       "react-router" -> "5.1.2",
       "@types/react-router" -> "5.1.2",
@@ -303,12 +307,9 @@ lazy val ui = (project in file("lib/ui"))
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
       "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
-      "net.wiringbits" %%% "slinky-utils" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
+      "net.wiringbits" %%% "slinky-utils" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum,
-
-
-
     )
   )
 
@@ -386,7 +387,12 @@ lazy val web = (project in file("web"))
     Compile / stMinimize := Selection.All,
     // material-ui is provided by a pre-packaged library
     stIgnore ++= List("@material-ui/core", "@material-ui/styles", "@material-ui/icons"),
+    //stIgnore ++= List("@mui/material", "@mui/styles", "@mui/icons-material"),
+
     Compile / npmDependencies ++= Seq(
+      //"@mui/material"->"5.11.15",
+      //"@mui/styles" -> "5.11.13", // note: version 4 is not supported yet
+      //"@mui/icons-material"->"5.14.3",
       "@material-ui/core" -> "3.9.4", // note: version 4 is not supported yet
       "@material-ui/styles" -> "3.0.0-alpha.10", // note: version 4 is not supported yet
       "@material-ui/icons" -> "3.0.2",
@@ -403,7 +409,7 @@ lazy val web = (project in file("web"))
       "com.softwaremill.sttp.client3" %%% "core" % sttp,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
       "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
-      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1+10-a09d5b3d+20230725-1247-SNAPSHOT",
+      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
       "io.monix" %%% "monix-reactive" % "3.4.1"
     ),
     libraryDependencies ++= Seq(
@@ -440,9 +446,7 @@ lazy val admin = (project in file("admin"))
     webpackBundlingMode := BundlingMode.LibraryOnly(),
     libraryDependencies ++= Seq(
       "com.softwaremill.sttp.client3" %%% "core" % sttp,
-      "net.wiringbits" %%% "admin-data-explorer-web" % webappUtils,
-
-
+      "net.wiringbits" %%% "admin-data-explorer-web" % "0.6.1",
     ),
     Compile / npmDependencies ++= Seq(
       "react" -> "17.0.0",
