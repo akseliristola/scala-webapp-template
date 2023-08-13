@@ -9,7 +9,7 @@ import slinky.core.FunctionalComponent
 import slinky.core.facade.ReactElement
 import typings.reactRouter.mod.RouteProps
 import typings.reactRouterDom.components.Route
-import typings.reactRouterDom.{components as router}
+import typings.reactRouterDom.{components => router}
 import scala.util.{Failure, Success}
 
 object AppRouter {

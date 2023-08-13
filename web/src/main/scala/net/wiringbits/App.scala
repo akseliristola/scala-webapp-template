@@ -1,7 +1,7 @@
 package net.wiringbits
 
-import com.alexitc.materialui.facade.materialUiCore.{components => mui}
-import com.alexitc.materialui.facade.materialUiStyles.components.ThemeProvider
+import com.olvind.mui.muiMaterial.components.ThemeProvider
+import com.olvind.mui.muiMaterial.{components=>mui}
 import net.wiringbits.components.AppSplash
 import slinky.core.FunctionalComponent
 import typings.reactRouterDom.{components => router}
@@ -13,7 +13,7 @@ object App {
     val appRouter = AppRouter.Props(props.ctx)
 
     ThemeProvider(AppTheme.value)(
-      mui.MuiThemeProvider(AppTheme.value)(
+      mui.ThemeProvider(AppTheme.value)(
         mui.CssBaseline(),
         router.BrowserRouter.basename("")(
           AppSplash.component(AppSplash.Props(props.ctx,AppRouter.component(appRouter)))

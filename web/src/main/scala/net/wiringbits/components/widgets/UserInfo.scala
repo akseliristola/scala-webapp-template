@@ -1,6 +1,6 @@
 package net.wiringbits.components.widgets
 
-import com.alexitc.materialui.facade.materialUiCore.{components => mui, materialUiCoreStrings => muiStrings}
+import com.olvind.mui.muiMaterial.{components=>mui}
 import net.wiringbits.api.models.GetCurrentUser
 import net.wiringbits.models.User
 import net.wiringbits.webapp.utils.slinkyUtils.components.core.AsyncComponent
@@ -21,7 +21,7 @@ object UserInfo {
       justifyContent = Container.Alignment.center,
       child = Fragment(
         CircularLoader(48),
-        mui.Typography(texts.loading).variant(muiStrings.h4).color(muiStrings.primary)
+        mui.Typography(texts.loading).variant("h4").color("primary")
       )
     )
 

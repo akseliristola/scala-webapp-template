@@ -1,7 +1,6 @@
 package net.wiringbits.components.widgets
 
-import com.alexitc.materialui.facade.materialUiCore.mod.PropTypes.Color
-import com.alexitc.materialui.facade.materialUiCore.{components => mui, materialUiCoreStrings => muiStrings}
+import com.olvind.mui.muiMaterial.{components=>mui}
 import net.wiringbits.core.I18nHooks
 import net.wiringbits.forms.SignUpFormData
 import net.wiringbits.ui.components.inputs.{EmailInput, NameInput, PasswordInput}
@@ -140,12 +139,12 @@ object SignUpForm {
         } else Fragment(texts.createAccount)
 
       mui
-        .Button(text)
+        .Button.normal()(text)
         .fullWidth(true)
         .disabled(formData.isSubmitButtonDisabled)
-        .variant(muiStrings.contained)
-        .color(Color.primary)
-        .`type`(muiStrings.submit)
+        .variant("contained")
+        .color("primary")
+        .`type`("submit")
     }
 
     // TODO: Use a form to get the enter key submitting the form

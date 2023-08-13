@@ -1,6 +1,6 @@
 package net.wiringbits.components.widgets
 
-import com.alexitc.materialui.facade.materialUiCore.{components => mui, materialUiCoreStrings => muiStrings}
+import com.olvind.mui.muiMaterial.{components=>mui}
 import net.wiringbits.core.I18nHooks
 import net.wiringbits.forms.UpdatePasswordFormData
 import net.wiringbits.models.User
@@ -103,13 +103,13 @@ object EditPasswordForm {
       }
 
       mui
-        .Button(text)
+        .Button.normal()(text)
         .fullWidth(true)
         .disabled(formData.isSubmitButtonDisabled)
-        .variant(muiStrings.contained)
-        .color(muiStrings.primary)
-        .size(muiStrings.large)
-        .`type`(muiStrings.submit)
+        .variant("contained")
+        .color("primary")
+        .size("large")
+        .`type`("submit")
     }
 
     val error =

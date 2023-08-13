@@ -160,10 +160,10 @@ lazy val reactNpmDeps: Project => Project =
     stTypescriptVersion := "3.9.3",
     stIgnore += "react-proxy",
     Compile / npmDependencies ++= Seq(
-      "react" -> "16.13.1",
-      "react-dom" -> "16.13.1",
-      "@types/react" -> "16.9.42",
-      "@types/react-dom" -> "16.9.8",
+      "react" -> "17.0.0",
+      "react-dom" -> "17.0.0",
+      "@types/react" -> "17.0.0",
+      "@types/react-dom" -> "17.0.0",
       "csstype" -> "2.6.11",
       "@types/prop-types" -> "15.7.3",
       "react-proxy" -> "1.1.8"
@@ -229,7 +229,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
   .jvmSettings(
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play-json" % playJson,
-      "net.wiringbits" %% "webapp-common" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
+      "net.wiringbits" %% "webapp-common" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
       "org.scalatest" %% "scalatest" % "3.2.16" % Test
     )
   )
@@ -241,7 +241,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
     libraryDependencies ++= Seq(
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "com.typesafe.play" %%% "play-json" % playJson,
-      "net.wiringbits" %%% "webapp-common" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
+      "net.wiringbits" %%% "webapp-common" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum
     )
@@ -284,15 +284,11 @@ lazy val ui = (project in file("lib/ui"))
     Test / fork := false, // sjs needs this to run tests
     stTypescriptVersion := "3.9.3",
     // material-ui is provided by a pre-packaged library
-    stIgnore ++= List("@material-ui/core", "@material-ui/styles", "@material-ui/icons"),
-    //stIgnore ++= List("@mui/material", "@mui/styles", "@mui/icons-material"),
+    stIgnore ++= List("@mui/material", "@mui/styles", "@mui/icons-material"),
     Compile / npmDependencies ++= Seq(
-      "@material-ui/core" -> "3.9.4", // note: version 4 is not supported yet
-      "@material-ui/styles" -> "3.0.0-alpha.10", // note: version 4 is not supported yet
-      "@material-ui/icons" -> "3.0.2",
-      //"@mui/material"->"5.11.15",
-      //"@mui/styles" -> "5.11.13", // note: version 4 is not supported yet
-      //"@mui/icons-material"->"5.14.3",
+      "@mui/material"->"5.11.15",
+      "@mui/styles" -> "5.11.13", // note: version 4 is not supported yet
+      "@mui/icons-material"->"5.14.3",
       "@types/classnames" -> "2.2.10",
       "react-router" -> "5.1.2",
       "@types/react-router" -> "5.1.2",
@@ -306,10 +302,11 @@ lazy val ui = (project in file("lib/ui"))
     libraryDependencies ++= Seq(
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
-      "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
-      "net.wiringbits" %%% "slinky-utils" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
+      "com.olvind.st-material-ui" %%% "st-material-ui-icons-slinky" % "5.11.16",
+      "net.wiringbits" %%% "slinky-utils" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum,
+      "com.olvind.st-material-ui" %%% "st-material-ui-icons-slinky" % "5.11.16",
     )
   )
 
@@ -344,7 +341,6 @@ lazy val server = (project in file("server"))
       "javax.el" % "javax.el-api" % "3.0.0",
       "org.glassfish" % "javax.el" % "3.0.0",
       "com.beachape" %% "enumeratum" % enumeratum,
-
     )
   )
 
@@ -386,16 +382,14 @@ lazy val web = (project in file("web"))
     stUseScalaJsDom := true,
     Compile / stMinimize := Selection.All,
     // material-ui is provided by a pre-packaged library
-    stIgnore ++= List("@material-ui/core", "@material-ui/styles", "@material-ui/icons"),
-    //stIgnore ++= List("@mui/material", "@mui/styles", "@mui/icons-material"),
+    stIgnore ++= List("@mui/material", "@mui/styles", "@mui/icons-material"),
 
     Compile / npmDependencies ++= Seq(
-      //"@mui/material"->"5.11.15",
-      //"@mui/styles" -> "5.11.13", // note: version 4 is not supported yet
-      //"@mui/icons-material"->"5.14.3",
-      "@material-ui/core" -> "3.9.4", // note: version 4 is not supported yet
-      "@material-ui/styles" -> "3.0.0-alpha.10", // note: version 4 is not supported yet
-      "@material-ui/icons" -> "3.0.2",
+      "@mui/material"->"5.11.15",
+      "@mui/styles" -> "5.11.13", // note: version 4 is not supported yet
+      "@mui/icons-material"->"5.14.3",
+      "@emotion/styled"->"11.11.0",
+      "@emotion/react"->"11.11.1",
       "@types/classnames" -> "2.2.10",
       "react-router" -> "5.1.2",
       "@types/react-router" -> "5.1.2",
@@ -408,8 +402,8 @@ lazy val web = (project in file("web"))
       "com.typesafe.play" %%% "play-json" % playJson,
       "com.softwaremill.sttp.client3" %%% "core" % sttp,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
-      "com.alexitc" %%% "sjs-material-ui-facade" % "0.2.0",
-      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1+17-e9245bf5+20230808-2039-SNAPSHOT",
+      "com.olvind.st-material-ui" %%% "st-material-ui-icons-slinky" % "5.11.16",
+      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
       "io.monix" %%% "monix-reactive" % "3.4.1"
     ),
     libraryDependencies ++= Seq(
