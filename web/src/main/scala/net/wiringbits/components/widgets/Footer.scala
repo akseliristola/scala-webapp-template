@@ -19,7 +19,7 @@ import slinky.core.facade.Fragment
 object Footer {
   case class Props(ctx: AppContext)
   val styling=new CSSProperties {
-    color="FFF"
+    color="#FFF"
     backgroundColor="#222"
     borderRadius=0
   }
@@ -36,8 +36,7 @@ object Footer {
       child = mui.Typography(texts.appName).variant("h4").color(Color.inherit)
     )
     val appDescription =
-      mui.Typography(texts.description).variant("body2")
-        .color(Color.inherit)
+      mui.Typography(texts.description).variant("body2").color(Color.inherit)
 
     def title(text: String) =
       Container(
