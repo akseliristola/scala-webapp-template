@@ -6,7 +6,6 @@ import com.olvind.mui.react.mod.CSSProperties
 import com.olvind.mui.csstype.mod.Property.{FlexDirection, TextAlign}
 import com.olvind.mui.muiMaterial.mod.PropTypes.Color
 import com.olvind.mui.muiIconsMaterial.components as muiIcons
-import com.olvind.mui.react.mod
 import net.wiringbits.AppContext
 import net.wiringbits.core.{I18nHooks, ReactiveHooks}
 import net.wiringbits.models.AuthState
@@ -37,7 +36,7 @@ object AppBar {
   val menuStyling=new CSSProperties {
      display="flex"
   }
-  val menuMobile =  new mod.CSSProperties{
+  val menuMobile =  new CSSProperties{
      display="flex"
      flexDirection=FlexDirection.column
      color="#222"
@@ -102,7 +101,7 @@ object AppBar {
       val drawer = mui.SwipeableDrawer(
         onOpen = _ => setVisibleDrawer(true),
         onClose = _ => setVisibleDrawer(false)
-      )(drawerContent)
+      )(drawerContent).open(visibleDrawer)
 
       val toolbar = mui.Toolbar(className := "toolbar-mobile",style:=toolbarMobileStyling)(
         mui

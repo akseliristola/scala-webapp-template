@@ -4,12 +4,10 @@ package net.wiringbits
 
 import com.olvind.mui.muiMaterial.stylesCreateThemeMod.ThemeOptions
 import com.olvind.mui.muiMaterial.stylesCreateThemeMod.Theme
-
 import com.olvind.mui.muiMaterial.stylesCreatePaletteMod.SimplePaletteColorOptions
 import com.olvind.mui.muiMaterial.stylesCreatePaletteMod.PaletteOptions
 import com.olvind.mui.muiMaterial.stylesCreateTypographyMod.TypographyOptions
-
-import com.olvind.mui.muiMaterial.stylesMod.createMuiTheme
+import com.olvind.mui.muiMaterial.stylesMod.{createMuiTheme, createTheme}
 import com.olvind.mui.muiMaterial.colorsMod as Colors
 import com.olvind.mui.muiMaterial.stylesPropsMod.ComponentsProps
 import com.olvind.mui.muiMaterial.components as mui
@@ -33,7 +31,7 @@ object AppTheme {
   val typography = TypographyOptions()
   val borderRadius = 8
 
-  val value: Theme = createMuiTheme(
+  val value: Theme = createTheme(
     ThemeOptions()
       .setPalette(
         PaletteOptions()
@@ -41,6 +39,7 @@ object AppTheme {
       )
       .setTypography(typography)
       .setShape(ShapeOptions().setBorderRadius(borderRadius))
+      
       
 //      .setProps(
 //        ComponentsProps()

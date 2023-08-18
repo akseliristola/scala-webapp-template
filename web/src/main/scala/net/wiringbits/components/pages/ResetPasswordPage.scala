@@ -5,7 +5,6 @@ import com.olvind.mui.muiMaterial.{components=>mui}
 import com.olvind.mui.react.mod.CSSProperties
 import com.olvind.mui.csstype.mod.Property.TextAlign
 
-
 import net.wiringbits.common.models.UserToken
 import net.wiringbits.components.widgets.{AppCard, ResetPasswordForm}
 import net.wiringbits.webapp.utils.slinkyUtils.components.core.widgets.Container

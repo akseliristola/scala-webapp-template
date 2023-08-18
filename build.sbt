@@ -229,7 +229,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
   .jvmSettings(
     libraryDependencies ++= Seq(
       "com.typesafe.play" %% "play-json" % playJson,
-      "net.wiringbits" %% "webapp-common" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
+      "net.wiringbits" %% "webapp-common" % "0.6.1-mui5",
       "org.scalatest" %% "scalatest" % "3.2.16" % Test
     )
   )
@@ -241,7 +241,7 @@ lazy val common = (crossProject(JSPlatform, JVMPlatform) in file("lib/common"))
     libraryDependencies ++= Seq(
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "com.typesafe.play" %%% "play-json" % playJson,
-      "net.wiringbits" %%% "webapp-common" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
+      "net.wiringbits" %%% "webapp-common" % "0.6.1-mui5",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum
     )
@@ -303,7 +303,7 @@ lazy val ui = (project in file("lib/ui"))
       "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTime,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
       "com.olvind.st-material-ui" %%% "st-material-ui-icons-slinky" % "5.11.16",
-      "net.wiringbits" %%% "slinky-utils" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
+      "net.wiringbits" %%% "slinky-utils" % "0.6.1-mui5",
       "org.scalatest" %%% "scalatest" % "3.2.16" % Test,
       "com.beachape" %%% "enumeratum" % enumeratum,
       "com.olvind.st-material-ui" %%% "st-material-ui-icons-slinky" % "5.11.16",
@@ -403,7 +403,7 @@ lazy val web = (project in file("web"))
       "com.softwaremill.sttp.client3" %%% "core" % sttp,
       "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1",
       "com.olvind.st-material-ui" %%% "st-material-ui-icons-slinky" % "5.11.16",
-      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1+17-e9245bf5+20230812-2159-SNAPSHOT",
+      "net.wiringbits" %%% "scalablytyped-facades" % "0.6.1-mui5",
       "io.monix" %%% "monix-reactive" % "3.4.1"
     ),
     libraryDependencies ++= Seq(
