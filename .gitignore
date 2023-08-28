@@ -7,3 +7,4 @@ logs/
 admin/build/
 web/build/
 local.env
+**/yarn.lock
