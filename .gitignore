@@ -8,3 +8,4 @@ admin/build/
 web/build/
 local.env
 **/yarn.lock
+node_modules
