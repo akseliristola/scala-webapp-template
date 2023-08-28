@@ -403,7 +403,7 @@ lazy val web = (project in file("web"))
   .settings(
     name := "wiringbits-web",
     useYarn := true,
-    webpackDevServerPort := 8081,
+    webpackDevServerPort := 8080,
     stFlavour := Flavour.Slinky,
     stReactEnableTreeShaking := Selection.All,
     stUseScalaJsDom := true,
